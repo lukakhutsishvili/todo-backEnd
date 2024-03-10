@@ -1,7 +1,6 @@
 import bodyParser from "body-parser";
 import express from "express";
 import dotenv from "dotenv";
-import cors from "cors";
 
 //rato vwert ./?
 import connectToMongo from "./config/mongo.js";
