@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use("/api", todoRouter);
 app.use("/", ...SwaggerMiddleware());
 
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 // Define your routes and other middleware here
 
