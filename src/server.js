@@ -13,9 +13,16 @@ dotenv.config();
 connectToMongo();
 
 app.use(bodyParser.json());
-app.use(cors());
 
 app.use("/api", todoRouter);
 app.use("/", ...SwaggerMiddleware());
 
-app.listen(process.env.PORT || 3000);
+app.use(cors());
+
+// Define your routes and other middleware here
+
+// Start the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
