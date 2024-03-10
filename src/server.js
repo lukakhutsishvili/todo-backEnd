@@ -7,6 +7,7 @@ import cors from "cors";
 import connectToMongo from "./config/mongo.js";
 import todoRouter from "./routes/todoRouter.js";
 import SwaggerMiddleware from "./middlewares/swagger-middleware.js";
+import cors from "cors";
 
 const app = express();
 dotenv.config();
