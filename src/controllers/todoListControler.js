@@ -8,5 +8,5 @@ export const getAllTodo = async (req, res) => {
       name: item.name,
     };
   });
-  return res.json(data);
+  return res.json(newData);
 };
