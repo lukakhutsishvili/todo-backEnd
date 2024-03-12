@@ -1,19 +1,22 @@
 import mongoose from "mongoose";
+import { v4 as uuidv4 } from "uuid";
 
 const { Schema } = mongoose;
 
 const todoListSchema = new Schema({
-  name: {
+  todo: {
     type: Schema.Types.String,
     require: true,
   },
   status: {
-    type: Schema.Types.String,
+    type: Schema.Types.Boolean,
     require: true,
   },
   id: {
-    type: Schema.Types.Number,
+    type: Schema.Types.String,
+    unique: true,
     require: true,
+    default: uuidv4,
   },
 });
 

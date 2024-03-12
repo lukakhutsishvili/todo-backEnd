@@ -18,8 +18,6 @@ app.use(bodyParser.json());
 app.use("/api", todoRouter);
 app.use("/", ...SwaggerMiddleware());
 
-
-
 // Define your routes and other middleware here
 
 // Start the server

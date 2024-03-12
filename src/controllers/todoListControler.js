@@ -10,3 +10,13 @@ export const getAllTodo = async (req, res) => {
   });
   return res.json(newData);
 };
+
+
+export const addTodo = async (req, res) => {
+  try {
+    const test = req.body;
+    const item = new todoList(test);
+    const result = await item.save();
+    console.log(result);
+  } catch (error) {}
+};

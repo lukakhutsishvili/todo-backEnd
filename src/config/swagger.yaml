@@ -24,3 +24,23 @@ paths:
                 type: array
                 items:
                   type: string
+
+  /send:
+    post:
+      tags:
+        - Todo
+      requestBody:
+        description: add todo
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                todo:
+                  type: string
+                status:
+                  type: boolean
+      responses:
+        "200":
+          description: ToDo add
