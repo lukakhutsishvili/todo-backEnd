@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const { Schema } = mongoose;
 
 const todoListSchema = new Schema({
-  todo: {
+  name: {
     type: Schema.Types.String,
     require: true,
   },
