@@ -6,6 +6,6 @@ const todoRouter = express.Router();
 
 todoRouter.get("/todoList", getAllTodo)
 
-todoRouter.post("/send", addTodo);
+todoRouter.post("/sendTodo", addTodo);
 
 export default todoRouter;

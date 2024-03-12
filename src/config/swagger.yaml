@@ -41,6 +41,8 @@ paths:
                   type: string
                 status:
                   type: boolean
+                  id:
+                  type: number
       responses:
         "200":
           description: ToDo add

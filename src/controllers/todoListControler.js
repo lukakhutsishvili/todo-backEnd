@@ -11,12 +11,23 @@ export const getAllTodo = async (req, res) => {
   return res.json(newData);
 };
 
-
 export const addTodo = async (req, res) => {
   try {
     const test = req.body;
     const item = new todoList(test);
     const result = await item.save();
-    console.log(result);
-  } catch (error) {}
+    return res.json({ message: "Successfully created todo", todo: result });
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
 };
+
+
+export const updateTodo = async (req, res) =>{
+  try {
+    
+    
+  } catch (error) {
+    
+  }
+}
