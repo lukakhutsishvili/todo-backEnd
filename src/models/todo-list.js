@@ -15,7 +15,7 @@ const todoListSchema = new Schema({
   id: {
     type: Schema.Types.String,
     unique: true,
-    require: true,
+    required: true,
     default: uuidv4,
   },
 });
