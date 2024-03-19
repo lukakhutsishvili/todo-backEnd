@@ -131,17 +131,3 @@ paths:
                   error:
                     type: string
                     description: Error message
-
-components:
-  schemas:
-    Todo:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the todo item
-        status:
-          type: boolean
-          description: Status of the todo item (true for completed, false for pending)
-      required:
-        - name
