@@ -26,19 +26,42 @@ paths:
                   type: string
 
   /sendTodo:
-    post:
-      tags:
-        - Todo
-      requestBody:
-        description: Add todo
-        required: true
+  post:
+    tags:
+      - Todo
+    requestBody:
+      description: Add todo
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Todo"
+    responses:
+      "200":
+        description: ToDo added successfully
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/Todo"
-      responses:
-        "200":
-          description: ToDo added successfully
+
+components:
+  schemas:
+    Todo:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the todo item
+        status:
+          type: boolean
+          description: The status of the todo item
+        id:
+          type: string
+          description: The unique ID of the todo item
+      required:
+        - name
+        - status
+        - id
 
   /updateTodo/{id}:
     put:
