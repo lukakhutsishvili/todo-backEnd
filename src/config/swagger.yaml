@@ -15,36 +15,37 @@ paths:
     get:
       tags:
         - todoList
+      summary: Get all todo items
       responses:
-        "200":
+        '200':
           description: Successfully fetched
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  type: string
+                  $ref: '#/components/schemas/Todo'
 
   /sendTodo:
-  post:
-    tags:
-      - Todo
-    requestBody:
-      description: Add todo
-      required: true
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/Todo"
-    responses:
-      "200":
-        description: ToDo added successfully
+    post:
+      tags:
+        - Todo
+      summary: Add a new todo
+      requestBody:
+        description: Todo object to add
+        required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Todo"
-
-
+              $ref: '#/components/schemas/Todo'
+      responses:
+        '200':
+          description: Todo added successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+  
   /updateTodo/{id}:
     put:
       tags:
@@ -58,7 +59,7 @@ paths:
             type: string
           description: The ID of the todo item to update
       responses:
-        "200":
+        '200':
           description: Successful update
           content:
             application/json:
@@ -69,8 +70,8 @@ paths:
                     type: string
                     description: Success message
                   todo:
-                    $ref: "#/components/schemas/Todo"
-        "404":
+                    $ref: '#/components/schemas/Todo'
+        '404':
           description: Todo not found
           content:
             application/json:
@@ -86,7 +87,6 @@ paths:
       tags:
         - todo
       summary: Deletes a todo item
-      operationId: deleteTodo
       parameters:
         - in: path
           name: id
@@ -94,7 +94,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Todo deleted successfully
           content:
             application/json:
@@ -132,3 +132,16 @@ paths:
                     type: string
                     description: Error message
 
+components:
+  schemas:
+    Todo:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the todo item
+        status:
+          type: boolean
+          description: Status of the todo item (true for completed, false for pending)
+      required:
+        - name
