@@ -17,6 +17,7 @@ export const addTodo = async (req, res) => {
     const test = req.body;
     const item = new todoList(test);
     const result = await item.save();
+    res.status(200).json({ message: "Todo " });
     console.log(test);
   } catch (error) {
     res.status(500).json({ message: "Todo " });
