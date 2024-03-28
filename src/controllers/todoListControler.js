@@ -17,7 +17,7 @@ export const addTodo = async (req, res) => {
     const test = req.body;
     const item = new todoList(test);
     const result = await item.save();
-    res.status(200).json({ message: "Todo " });
+    res.status(200).json({ result });
     console.log(test);
   } catch (error) {
     res.status(500).json({ message: "Todo " });
@@ -33,7 +33,9 @@ export const updateTodo = async (req, res) => {
     }
     existingTodo.status = !existingTodo.status;
     const updatedTodo = await existingTodo.save();
-    res.json({ message: "Todo updated successfully", todo: updatedTodo });
+    res
+      .status(201)
+      .json({ message: "Todo updated successfully", todo: updatedTodo });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
