@@ -49,7 +49,7 @@ paths:
     put:
       summary: Update a ToDo item
       tags:
-        - Todo
+        - updateTodo
       parameters:
         - in: path
           name: id
