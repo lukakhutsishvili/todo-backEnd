@@ -49,7 +49,7 @@ paths:
     put:
       summary: Update a ToDo item
       tags:
-        - updateTodo
+        - Update Todo
       parameters:
         - in: path
           name: id
@@ -68,7 +68,6 @@ paths:
       responses:
         "200":
           description: ToDo updated successfully
-
   /deleteTodo/{id}:
     delete:
       tags:
