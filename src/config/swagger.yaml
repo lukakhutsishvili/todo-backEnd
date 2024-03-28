@@ -42,44 +42,32 @@ paths:
                 status:
                   type: boolean
       responses:
-        '200':
+        "200":
           description: ToDo added successfully
 
   /updateTodo/{id}:
     put:
+      summary: Update a ToDo item
       tags:
-        - update todoes
-      summary: Update the status of a todo item
+        - Todo
       parameters:
-        - name: id
-          in: path
+        - in: path
+          name: id
           required: true
           schema:
             type: string
-          description: The ID of the todo item to update
+        - in: body
+          name: todo
+          description: Updated todo object
+          required: true
+          schema:
+            type: object
+            properties:
+              status:
+                type: boolean
       responses:
         "200":
-          description: Successful update
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Success message
-                  todo:
-                    $ref: "#/components/schemas/Todo"
-        "404":
-          description: Todo not found
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: Error message
+          description: ToDo updated successfully
 
   /deleteTodo/{id}:
     delete:
@@ -111,7 +99,7 @@ paths:
       summary: Delete todos with status false
       description: Deletes all todos with status set to false.
       responses:
-        '201':
+        "201":
           description: Todo deleted successfully
           content:
             application/json:
@@ -121,7 +109,7 @@ paths:
                   message:
                     type: string
                     description: Todo deleted successfully
-        '500':
+        "500":
           description: Internal Server Error
           content:
             application/json:
@@ -131,11 +119,3 @@ paths:
                   error:
                     type: string
                     description: Error message
-
-
-
-
-
-
-
-
